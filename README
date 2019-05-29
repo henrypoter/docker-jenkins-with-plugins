@@ -1,0 +1,25 @@
+
+构建jenkins镜像
+
+docker build -t myjenkins-with-plugins .
+
+
+启动一个容器实例
+docker run -d -v jenkins_home:/var/jenkins_home -p 8098:8080 -p 50000:50000 myjenkins-with-plugins:latest
+
+
+
+jenkins@57728afb7fcf:~/workspace/mygradle$ /usr/local/bin/install-plugins.sh postbuildscript:latest
+
+
+
+docker exec -it 34447c5561e3 bash
+
+
+sudo docker logs -f -t --tail 100 34447c5561e3
+
+
+配置task
+
+效果：
+![avatar](a.jpg)
